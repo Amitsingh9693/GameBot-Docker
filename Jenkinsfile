@@ -17,7 +17,7 @@ pipeline {
             steps {
                 dir('backend') {
                     echo 'Building backend Docker image...'
-                    bat "docker build -t %APP_NAME%-backend:latest ."
+                    bat "docker build -t ${APP_NAME}-backend:latest ."
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 dir('frontend') {
                     echo 'Building frontend Docker image...'
-                    bat "docker build -t %APP_NAME%-frontend:latest ."
+                    bat "docker build -t ${APP_NAME}-frontend:latest ."
                 }
             }
         }
