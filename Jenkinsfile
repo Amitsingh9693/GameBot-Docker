@@ -52,9 +52,12 @@ pipeline {
             steps {
                 echo 'Stopping and removing existing containers...'
                 bat '''
+                    docker container rm -f game_bot_mongo || exit /b 0
+                    docker container rm -f game_bot_redis || exit /b 0
+                    docker container rm -f game_bot_backend || exit /b 0
+                    docker container rm -f game_bot_frontend || exit /b 0
                     docker compose down --remove-orphans || exit /b 0
                     docker container prune -f || exit /b 0
-                    timeout /t 2 /nobreak || exit /b 0
                 '''
             }
         }
