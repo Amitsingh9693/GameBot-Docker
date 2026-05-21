@@ -116,7 +116,7 @@ const Home = () => {
       <header className="text-center mb-10 animate-in fade-in slide-in-from-top-4 duration-700">
         <h1 className="text-primary text-4xl md:text-5xl font-bold mb-3 flex items-center justify-center gap-4">
           <Bot size={40} className="text-primary" />
-          Game
+          GameGuru
         </h1>
         <p className="text-text-light text-lg max-w-2xl mx-auto">
           Your personal gaming assistant that helps you discover perfect games tailored to your taste
