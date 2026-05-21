@@ -51,7 +51,11 @@ pipeline {
         stage('Stop Previous Containers') {
             steps {
                 echo 'Stopping and removing existing containers...'
-                bat 'docker compose down || exit /b 0'
+                bat '''
+                    docker compose down --remove-orphans || exit /b 0
+                    docker container prune -f || exit /b 0
+                    timeout /t 2 /nobreak || exit /b 0
+                '''
             }
         }
 
