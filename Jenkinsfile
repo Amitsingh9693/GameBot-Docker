@@ -48,6 +48,13 @@ pipeline {
             }
         }
 
+        stage('Stop Previous Containers') {
+            steps {
+                echo 'Stopping and removing existing containers...'
+                bat 'docker compose down || exit /b 0'
+            }
+        }
+
         stage('Deploy') {
             steps {
                 echo 'Deploying application using Docker Compose...'
