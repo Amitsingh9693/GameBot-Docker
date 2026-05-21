@@ -31,6 +31,23 @@ pipeline {
             }
         }
 
+        stage('Prepare Environment') {
+            steps {
+                dir('backend') {
+                    echo 'Creating .env file...'
+                    bat '''
+                        @echo off
+                        (
+                            echo PORT=5000
+                            echo MONGODB_URI=mongodb://mongo:27017/game-recommendations
+                            echo REDIS_URL=redis://redis:6379
+                            echo RAWG_API_KEY=ae1cc50a0ccd4a0da6d2c7da5f14f98f
+                        ) > .env
+                    '''
+                }
+            }
+        }
+
         stage('Deploy') {
             steps {
                 echo 'Deploying application using Docker Compose...'
