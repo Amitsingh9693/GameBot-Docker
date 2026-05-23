@@ -17,7 +17,7 @@ pipeline {
             steps {
                 dir('backend') {
                     echo 'Building backend Docker image...'
-                    bat "docker build -t ${APP_NAME}-backend:latest ."
+                    sh "docker build -t ${APP_NAME}-backend:latest ."
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 dir('frontend') {
                     echo 'Building frontend Docker image...'
-                    bat "docker build -t ${APP_NAME}-frontend:latest ."
+                    sh "docker build -t ${APP_NAME}-frontend:latest ."
                 }
             }
         }
@@ -34,14 +34,14 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying application using Docker Compose...'
-                bat 'docker compose up -d --build'
+                sh 'docker compose up -d --build'
             }
         }
 
         stage('Cleanup') {
             steps {
                 echo 'Cleaning up dangling Docker images...'
-                bat 'docker image prune -f'
+                sh 'docker image prune -f'
             }
         }
     }
