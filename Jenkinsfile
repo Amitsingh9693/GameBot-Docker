@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME = 'game-recommendation-bot'
+        APP_NAME = 'gamebot'
     }
 
     stages {
