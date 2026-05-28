@@ -4,7 +4,7 @@ pipeline {
     environment {
         APP_NAME = 'gamebot'
     }
-//ASDFGHJ
+    
     stages {
 
         stage('Checkout') {
