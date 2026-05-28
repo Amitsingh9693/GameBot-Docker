@@ -33,9 +33,6 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Stopping and removing old containers...' 
-                sh 'docker-compose down --remove-orphans'
-                
                 echo 'Deploying application using Docker Compose...'
                 sh 'docker-compose up -d --build'
             }
