@@ -45,7 +45,7 @@ const DeveloperInfo = () => {
           </div>
           
           <a 
-            href="https://github.com/Amitsingh9693/Game-Recommendation-Bot" 
+            href="https://github.com/Amitsingh9693/GameBot-Docker" 
             target="_blank" 
             rel="noreferrer"
             className="flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-primary-light hover:text-white transition-colors cursor-pointer"
